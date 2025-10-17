@@ -107,7 +107,7 @@ li.right {
 
 #about, #menu {
     display: flex;
-    padding: 3rem 20px;
+    padding: 2rem 20px;
     gap: 20px;
 }
 
