@@ -203,7 +203,6 @@ footer a:hover {
   position: absolute;
   top: 100px;
   left: 20px;
-  transform: translate(-50%, -50%);
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(6px);
   padding: 10px 20px;
