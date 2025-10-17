@@ -4,3 +4,23 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+
+/* Global Font Settings */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #222;
+  margin-top: 0;
+}
+
