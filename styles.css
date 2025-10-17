@@ -199,4 +199,22 @@ footer a:hover {
   text-transform: capitalize;
 }
 
+.hero h1 {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #222;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 90%;
+}
+
 }
