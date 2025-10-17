@@ -188,3 +188,15 @@ footer a:hover {
         flex-direction: column;
     }
 }
+
+@media (max-width: 480px) {
+  .navbar-brand a {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  color: #222;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+}
