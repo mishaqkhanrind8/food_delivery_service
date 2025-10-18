@@ -113,12 +113,14 @@ li.right {
 }
 
 .sub-heading {
-  color: #555;
+  color: #777;
   font-size: 1.2rem;
+  margin-bottom: 25px;
 }
 
 p.blur {
-  color: #666;
+  color: #999;
+  margin-top: 25px;
 }
 
 #about, #menu {
