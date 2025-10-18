@@ -223,4 +223,10 @@ footer a:hover {
 .right-menu {
   margin-left: auto;
 }
+
+nav {
+font-size: 1.5rem !important 
+padding: 12px 5px;
+}
+
 }
