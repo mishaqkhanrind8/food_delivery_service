@@ -220,5 +220,7 @@ footer a:hover {
 .hidden-sm {
   display: none;
 }
-
+.right-menu {
+  margin-left: auto;
+}
 }
