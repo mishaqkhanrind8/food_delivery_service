@@ -112,6 +112,15 @@ li.right {
   max-width: 90%;
 }
 
+.sub-heading {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+p.blur {
+  color: #666;
+}
+
 #about, #menu {
     display: flex;
     padding: 2rem 20px;
