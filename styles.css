@@ -225,8 +225,8 @@ footer a:hover {
 }
 
 nav {
-font-size: 1.5rem !important 
-padding: 12px 5px;
+font-size: 1.5rem !important;
+padding: 12px 5px !important;
 }
 
 }
