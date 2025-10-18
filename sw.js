@@ -1,61 +1,39 @@
-// Le Catering - Food Delivery Service
-// service-worker.js
+  let deferredPrompt;
 
-const CACHE_NAME = "le-catering-cache-v1"; // Update version to refresh cache
-const OFFLINE_URL = "/offline.html"; // Optional offline fallback page
+  window.addEventListener("beforeinstallprompt", (e) => {
+    // Prevent the mini info bar from appearing
+    e.preventDefault();
+    deferredPrompt = e;
 
-// Files to cache for offline access
-const ASSETS_TO_CACHE = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/script.js",
-  "/manifest.json",
-  "/assets/android-chrome-192x192.png",
-  "/assets/android-chrome-512x512.png",
-  OFFLINE_URL
-];
+    // Show your custom install button
+    const installBtn = document.createElement("button");
+    installBtn.textContent = "Install Le Catering App";
+    installBtn.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #D4AF37;
+      color: #000;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 9999;
+    `;
+    document.body.appendChild(installBtn);
 
-// Install service worker and cache files
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
-  );
-  self.skipWaiting();
-});
+    installBtn.addEventListener("click", async () => {
+      installBtn.remove(); // Hide button
+      deferredPrompt.prompt(); // Show the browser install prompt
 
-// Activate and clean old caches
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((name) => name !== CACHE_NAME)
-          .map((name) => caches.delete(name))
-      );
-    })
-  );
-  self.clients.claim();
-});
-
-// Fetch from cache, then network fallback
-self.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET") return;
-
-  event
-    .respondWith(
-      caches.match(event.request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-
-        return fetch(event.request).then((networkResponse) => {
-          // Cache the new response
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, networkResponse.clone());
-          });
-          return networkResponse;
-        });
-      })
-  );
-});
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === "accepted") {
+        console.log("User accepted the install prompt");
+      } else {
+        console.log("User dismissed the install prompt");
+      }
+      deferredPrompt = null;
+    });
+  });
