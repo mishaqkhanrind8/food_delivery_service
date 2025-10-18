@@ -20,9 +20,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  line-height: 1.9;
   color: #222;
-  margin-top: 0;
+  margin-top: 10px;
 }
 
 /* Navbar Base Styles */
