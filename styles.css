@@ -77,7 +77,7 @@ li.right {
 /* Main wrapper */
 .wrapper {
   width: 100%;
-  pading-top: 80px;
+  padding-top: 80px;
   min-height: calc(100vh - 60px);
 }
 
